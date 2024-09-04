@@ -5,20 +5,20 @@ int main()
     int number;
     printf("Number: ");
     scanf("%d", &number);
-    int r = 0, index = 0;
-    int bin[20];
-    while(number != 0)
-    {
-        r = number % 2;
-        number = number / 2;
-        bin[index] = r;
-        index++;
-    }
-
-    for(int i = index-1; i >= 0; i--)
-    {
-        printf("%d", bin[i]);
-    }
     
+    int inverse = 0;
+    inverse = inverse*10 + number % 10;
+    number = number / 10;
+
+    inverse = inverse*10 + number % 10;
+    number = number / 10;
+
+    inverse = inverse*10 + number % 10;
+    number = number / 10;
+
+    inverse = inverse*10 + number % 10;
+    number = number / 10;
+
+    printf("Inverse: %d", inverse);
     return 0;
 }
