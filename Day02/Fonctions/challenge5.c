@@ -15,8 +15,7 @@ int factoriel(int p)
 {
     int f = 1;
     if(p == 0 || p == 1)
-        f = 1;
-    else
-        f = p * factoriel(p-1);
-    return f;
+        return 1;
+
+    return p * factoriel(p-1);
 }
