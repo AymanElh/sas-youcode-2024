@@ -141,6 +141,7 @@ void supprimer_livre(char titres[][STRING_SIZE], char auteurs[][STRING_SIZE], fl
         quantites[i] = quantites[i+1];
     }
     (*n) --;
+    printf("Le projet supprimer avec succees.\n");
 }
 
 int nbr_total(int quantities[], int n)
