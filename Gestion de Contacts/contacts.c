@@ -15,7 +15,7 @@ void ajouter_contact(contact c[], int *n)
     (*n)++;
 }
 
-int recherche_contact(contact c[], char name[], int n)
+int recherche_contact_name(contact c[], char name[], int n)
 {
     for(int i = 0; i < n; i++)
     {
