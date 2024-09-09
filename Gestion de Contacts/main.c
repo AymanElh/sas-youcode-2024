@@ -31,7 +31,7 @@ int main()
             case 3:
                 printf("Entrer le nom du contact que vous voulez modifier: ");
                 scanf(" %[^\n]", name);
-                supprimer_contact(contacts, name, &taille);
+                supprimer_contact(contacts, &taille);
                 break;
             case 4:
                 afficher(contacts, taille);

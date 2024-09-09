@@ -105,7 +105,7 @@ void modifier_contact(contact c[], int n)
     }
 }
 
-void supprimer_contact(contact c[], char name[], int *n)
+void supprimer_contact(contact c[], int *n)
 {
     printf("    1. Rechercher par id.\n");
     printf("    2. Rechercher par nom.\n");
