@@ -16,7 +16,7 @@ typedef struct contact
 }contact;
 
 void ajouter_contact(contact c[], int *n);
-int recherche_contact(contact c[], char name[], int n);
+int recherche_contact_name(contact c[], char name[], int n);
 void modifier_contact(contact c[], char name[], int n);
 void supprimer_contact(contact c[], char name[], int *n);
 void afficher(contact c[], int n);
