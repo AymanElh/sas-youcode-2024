@@ -37,9 +37,31 @@ int recherche_contact_id(contact c[], int id, int n)
     return -1;
 }
 
-void modifier_contact(contact c[], char name[], int n)
+void modifier_contact(contact c[], int n)
 {
-    int index = recherche_contact(c, name, n);
+    printf("2. Rechercher par id.\n");
+    printf("1. Rechercher par nom.\n");
+    int index;
+    int choix;
+    printf("Entrer votre choix: ");
+    scanf("%d", &choix);
+    switch(choix)
+    {
+        case 1:
+            int id;
+            printf("Entrer id de contact: ");
+            scanf("%d", &id);
+            index = recherche_contact_id(c, id, n);
+            break;
+        case 2:
+            char name[20];
+            printf("Entrer le nom de contact: ");
+            scanf(" %[^\n]", name);
+            index = recherche_contact_name(c, name, n);
+            break;
+        default:
+            printf("Choix Invalide.\n");
+    }
     if(index == -1)
     {
         printf("Le contact n'exist pas.\n");
