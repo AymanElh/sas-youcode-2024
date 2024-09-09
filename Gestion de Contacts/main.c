@@ -6,7 +6,6 @@ int main()
     contact contacts[SIZE];
     int taille = 0;
 
-    char name[SIZE];
     while(1)
     {
         printf("\n***** MENU ******\n");
@@ -29,8 +28,6 @@ int main()
                 modifier_contact(contacts, taille);
                 break;
             case 3:
-                printf("Entrer le nom du contact que vous voulez modifier: ");
-                scanf(" %[^\n]", name);
                 supprimer_contact(contacts, &taille);
                 break;
             case 4:

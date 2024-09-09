@@ -107,10 +107,11 @@ void modifier_contact(contact c[], int n)
 
 void supprimer_contact(contact c[], int *n)
 {
+    printf("\n");
     printf("    1. Rechercher par id.\n");
     printf("    2. Rechercher par nom.\n");
     int choix;
-    printf("Entrer votre choix: ");
+    printf("Entrer la methode de rechercher: ");
     scanf("%d", &choix);
 
     int index;
@@ -126,7 +127,7 @@ void supprimer_contact(contact c[], int *n)
         }
         case 2:
         {
-            char name[20];
+            char name[SIZE];
             printf("Entrer le nom de contact: ");
             scanf(" %[^\n]", name);
             index = recherche_contact_name(c, name, *n);
