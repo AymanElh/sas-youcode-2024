@@ -27,6 +27,16 @@ int recherche_contact_name(contact c[], char name[], int n)
     return -1;
 }
 
+int recherche_contact_id(contact c[], int id, int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        if(id == c[i].id)
+            return i;
+    }
+    return -1;
+}
+
 void modifier_contact(contact c[], char name[], int n)
 {
     int index = recherche_contact(c, name, n);
