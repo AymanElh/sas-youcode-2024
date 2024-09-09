@@ -26,9 +26,7 @@ int main()
                 ajouter_contact(contacts, &taille);
                 break;
             case 2:
-                printf("Entrer le nom du contact que vous voulez modifier: ");
-                scanf(" %[^\n]", name);
-                modifier_contact(contacts, name, taille);
+                modifier_contact(contacts, taille);
                 break;
             case 3:
                 printf("Entrer le nom du contact que vous voulez modifier: ");
