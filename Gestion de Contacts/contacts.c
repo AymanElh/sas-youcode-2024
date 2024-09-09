@@ -41,8 +41,8 @@ int recherche_contact_id(contact c[], int id, int n)
 
 void modifier_contact(contact c[], int n)
 {
-    printf("1. Rechercher par id.\n");
-    printf("2. Rechercher par nom.\n");
+    printf("    1. Rechercher par id.\n");
+    printf("    2. Rechercher par nom.\n");
     int index;
     int choix1;
     printf("Entrer votre choix: ");
@@ -107,8 +107,8 @@ void modifier_contact(contact c[], int n)
 
 void supprimer_contact(contact c[], char name[], int *n)
 {
-    printf("1. Rechercher par id.\n");
-    printf("2. Rechercher par nom.\n");
+    printf("    1. Rechercher par id.\n");
+    printf("    2. Rechercher par nom.\n");
     int choix;
     printf("Entrer votre choix: ");
     scanf("%d", &choix);
@@ -155,6 +155,7 @@ void afficher(contact c[], int n)
     printf("\nLes contacts sont.\n");
     for(int i = 0; i < n; i++)
     {
+        printf("Id: %d\n", c[i].id);
         printf("Nom: %s\n", c[i].nom);
         printf("Email: %s\n", c[i].email);
         printf("Numero: %s\n", c[i].numero);
