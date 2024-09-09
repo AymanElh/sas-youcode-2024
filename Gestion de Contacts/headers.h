@@ -9,6 +9,7 @@
 
 typedef struct contact
 {
+    int id;
     char nom[50];
     char numero[12];
     char email[50];
