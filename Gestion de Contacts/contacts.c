@@ -3,9 +3,9 @@
 
 void ajouter_contact(contact c[], int *n)
 {
+    printf("\nEntrer les information de contact.\n");
     printf("Id: ");
     scanf("%d", &c[*n].id);
-    printf("\nEntrer les information de contact.\n");
     printf("Nom: ");
     scanf(" %[^\n]", c[*n].nom);
     printf("Numero: ");
