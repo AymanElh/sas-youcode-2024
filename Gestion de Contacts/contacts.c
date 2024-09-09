@@ -39,26 +39,30 @@ int recherche_contact_id(contact c[], int id, int n)
 
 void modifier_contact(contact c[], int n)
 {
-    printf("2. Rechercher par id.\n");
-    printf("1. Rechercher par nom.\n");
+    printf("1. Rechercher par id.\n");
+    printf("2. Rechercher par nom.\n");
     int index;
-    int choix;
+    int choix1;
     printf("Entrer votre choix: ");
-    scanf("%d", &choix);
-    switch(choix)
+    scanf("%d", &choix1);
+    switch(choix1)
     {
         case 1:
+        {
             int id;
             printf("Entrer id de contact: ");
             scanf("%d", &id);
             index = recherche_contact_id(c, id, n);
             break;
+        }
         case 2:
+        {
             char name[20];
             printf("Entrer le nom de contact: ");
             scanf(" %[^\n]", name);
             index = recherche_contact_name(c, name, n);
             break;
+        }
         default:
             printf("Choix Invalide.\n");
     }
@@ -68,29 +72,32 @@ void modifier_contact(contact c[], int n)
         return;
     }
 
-    char numero[12], email[50];
-
-    int choix;
+    int choix2;
     printf("    1. Modifier le numero.\n");
     printf("    2. Modifier l'email.\n");
     printf("Entrer votre choix: ");
-    scanf("%d", &choix);
-    switch(choix)
+    scanf("%d", &choix2);
+    switch(choix2)
     {
         case 1:
+        {
+            char numero[12];   
             printf("Entrer le nouveau numero: ");
             scanf(" %[^\n]", numero);
-
             strcpy(c[index].numero, numero);
             printf("Le numero a ete modifie.\n");
             break;
+        }
         case 2:
+        {
+            char email[50];
             printf("Entrer le nouveau email: ");
             scanf(" %[^\n]", email);
 
             strcpy(c[index].email, email);
             printf("L'email a ete modifie.\n");
             break;
+        }
         default:
             printf("Choix invalid.\n");
     }
@@ -98,7 +105,35 @@ void modifier_contact(contact c[], int n)
 
 void supprimer_contact(contact c[], char name[], int *n)
 {
-    int index = recherche_contact(c, name, *n);
+    printf("1. Rechercher par id.\n");
+    printf("2. Rechercher par nom.\n");
+    int choix;
+    printf("Entrer votre choix: ");
+    scanf("%d", &choix);
+
+    int index;
+    switch(choix)
+    {
+        case 1:
+        {
+            int id;
+            printf("Entrer id de contact: ");
+            scanf("%d", &id);
+            index = recherche_contact_id(c, id, *n);
+            break;
+        }
+        case 2:
+        {
+            char name[20];
+            printf("Entrer le nom de contact: ");
+            scanf(" %[^\n]", name);
+            index = recherche_contact_name(c, name, *n);
+            break;
+        }
+        default:
+            printf("Choix Invalide.\n");
+    }
+            
     if(index == -1)
     {
         printf("Le contact introvable.\n");
