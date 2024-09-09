@@ -152,6 +152,11 @@ void supprimer_contact(contact c[], int *n)
 
 void afficher(contact c[], int n)
 {
+    if(n == 0)
+    {
+        printf("Il n'a pas acun contacts.\n");
+        return;
+    }
     printf("\nLes contacts sont.\n");
     for(int i = 0; i < n; i++)
     {
