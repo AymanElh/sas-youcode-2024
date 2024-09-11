@@ -23,7 +23,6 @@ void Menu()
     printf("13. Tri les etudiants par leur status.\n");
     printf("14. Afficher tous.\n");
     printf("15. Quitter.\n");
-    printf("   -------------------         \n");
 }
 
 int check_date(int annee, int mois, int jour)
@@ -252,12 +251,12 @@ int nbrEtudiantsParDep(Etudiant e[], char dep[], int taille)
 void afficherNbrEtudiantsParDep(Etudiant e[], int taille)
 {
     for(int i = 0; i < size; i++)
-        printf("Nombre total des etudiants dans departement %s est: %d\n", departements[i], nbrEtudiantsParDep(e, departements[i], taille));
+        printf("%s: %d\n", departements[i], nbrEtudiantsParDep(e, departements[i], taille));
 }
 
 void etudiantsSupSeuil(Etudiant e[], float seuil, int taille)
 {
-    printf("Les etudiants qu'ayant un note supperieur a %.2f sont: \n");
+    printf("Les etudiants qu'ayant un note supperieur a %.2f sont: \n", seuil);
     for(int i = 0; i < taille; i++)
     {
         if(e[i].note_generale >= seuil)
@@ -286,7 +285,6 @@ void topTrois(Etudiant e[], int taille)
             max_idx3 = i;
     }
 
-    printf("Top 3 etudiants sont: ");
     printf("%s: %.2f\n", e[max_idx1].nom, e[max_idx1].note_generale);
     printf("%s: %.2f\n", e[max_idx2].nom, e[max_idx2].note_generale);
     printf("%s: %.2f\n", e[max_idx3].nom, e[max_idx3].note_generale);
@@ -295,7 +293,7 @@ void topTrois(Etudiant e[], int taille)
 
 int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille)
 {
-    int nbr;
+    int nbr = 0;
     for(int i = 0; i < taille; i++)
     {
         if(strcmp(strlwr(e[i].departement), strlwr(dep)) == 0 && e[i].note_generale >= 10)
@@ -306,7 +304,6 @@ int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille)
 
 void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille)
 {
-    printf("\nLe nombre des etudiant par departement: \n");
     for(int i = 0; i < size; i++)
     {
         printf("%s: %d\n", departements[i], nbrEtudiantReuissiParDep(e, departements[i], taille));
@@ -383,7 +380,6 @@ void afficherEtudiant(Etudiant e)
     printf("Date de naissance: %d/%d/%d\n", e.dateNaissance.annee, e.dateNaissance.mois, e.dateNaissance.jour);
     printf("Departement: %s\n", e.departement);
     printf("Note generale: %.2f\n", e.note_generale);
-    printf("\n    ---------------     \n");
 }
 
 void afficherTous(Etudiant e[], int taille)

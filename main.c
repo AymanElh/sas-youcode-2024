@@ -51,7 +51,8 @@ int main()
                 printf("Enter identifiant d'etudiant que vous voulez recherche: ");
                 scanf("%d", &id);
                 printf("L'etudiant que vous chercher est: \n");
-                afficherEtudiant(etudiants[rechercheEtudiantParId(etudiants, id, nbr_etudiants)]);
+                int index = rechercheEtudiantParId(etudiants, id, nbr_etudiants);
+                (index == -1) ? printf("Etudiant n'existe pas.\n") : afficherEtudiant(etudiants[index]);
                 printf("\n");
                 break;
             }
@@ -61,7 +62,8 @@ int main()
                 printf("Enter identifiant d'etudiant que vous voulez recherche: ");
                 scanf(" %[^\n]", nom);
                 printf("L'etudiant que vous chercher est: \n");
-                afficherEtudiant(etudiants[rechercheEtudiantParNom(etudiants, nom, nbr_etudiants)]);
+                int index = rechercheEtudiantParNom(etudiants, nom, nbr_etudiants);
+                (index == -1) ? printf("Etudiant n'existe pas.\n") : afficherEtudiant(etudiants[index]);
                 printf("\n");
                 break;
             }
@@ -86,15 +88,19 @@ int main()
             {
                 printf("Statistiques: \n");
                 printf("Nombre total des etudiants inscrits dans universite est: %d\n", nbr_etudiants);
+                printf("Le nombre des etudiants dans chaque departements: \n");
                 afficherNbrEtudiantsParDep(etudiants, nbr_etudiants);
-                printf("\n");
+                printf(" --------- \n");
+                printf("Les etudiant ayant une moyenne supperieur a un certaine seuil: \n");
                 float seuil;
                 printf("Entrer seuil: ");
                 scanf("%f", &seuil);
                 etudiantsSupSeuil(etudiants, seuil, nbr_etudiants);
-                printf("\n");
+                printf(" --------- \n");
+                printf("Top tois Etudiants sont: \n");
                 topTrois(etudiants, nbr_etudiants);
-                printf("\n");
+                printf(" --------- \n");
+                printf("Le nombre des etudiants reuissi par departement: \n");
                 afficherNbrEtudiantsReuissiParDep(etudiants, nbr_etudiants);
                 printf("\n");
                 break;
