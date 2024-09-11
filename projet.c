@@ -22,6 +22,7 @@ void Menu()
     printf("12. Tri les etudiants par ordre alphabetiques (Z-A).\n");
     printf("13. Tri les etudiants par leur status.\n");
     printf("14. Afficher tous.\n");
+    printf("15. Quitter.\n");
     printf("   -------------------         \n");
 }
 
@@ -168,7 +169,7 @@ float moyenneGeneraleParDep(Etudiant e[], char dep[], int taille)
     return sum / counter;
 }
 
-void afficherMoyenneGeneraleParDep(Etudiant e[],int taille)
+void afficherMoyenneGeneraleParDep(Etudiant e[], int taille)
 {
     for(int i = 0; i < size; i++)
     {
