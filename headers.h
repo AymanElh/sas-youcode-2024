@@ -32,5 +32,8 @@ int check_departement(char dep[]);
 Etudiant saisieEtudiant();
 void ajouterEtudiants(Etudiant e[], int nbr, int *taille);
 int rechercheEtudiantParId(Etudiant e[], int id, int taille);
+void modifierEtudiant(Etudiant e[], int id, int taille);
+void supprimerEtudiant(Etudiant e[], int id, int *taille);
+int rechercheEtudiantParNom(Etudiant e[], char nom[], int taille);
 
 #endif

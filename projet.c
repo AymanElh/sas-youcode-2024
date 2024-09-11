@@ -99,3 +99,44 @@ int rechercheEtudiantParId(Etudiant e[], int id, int taille)
     }
     return -1;
 }
+
+void modifierEtudiant(Etudiant e[], int id, int taille)
+{
+    int index = rechercheEtudiantParId(e, id, taille);
+    if(index == -1)
+    {
+        printf("L'etudiant n'existe pas.\n");
+        return;
+    }
+    printf("Entrer les nouveaux informations d'etudiant: \n");
+    e[index] = saisieEtudiant();
+    printf("L'etudiant a ete modifier.\n");
+}
+
+void supprimerEtudiant(Etudiant e[], int id, int *taille)
+{
+    int index = rechercheEtudiantParId(e, id, *taille);
+    if(index == -1)
+    {
+        printf("L'etudiant n'existe pas.\n");
+        return;
+    }
+    for(int i = index; i < *taille; i++)
+    {
+        e[i] = e[i+1];
+    }
+    (*taille) --;
+    printf("L'etudiant a ete supprimee.\n");
+}
+
+int rechercheEtudiantParNom(Etudiant e[], char nom[], int taille)
+{
+    for(int i = 0; i < taille; i++)
+    {
+        if(strcmp(strlwr(e[i].nom), strlwr(nom)) == 0)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
