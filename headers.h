@@ -49,6 +49,7 @@ void afficherEtudiantsInscritsParDep(Etudiant e[], int taille);
 void swap(Etudiant *a, Etudiant *b);
 void triParMoyenneGenerale(Etudiant e[], int taille);
 void triParOrdreAlphabetique(Etudiant e[], int taille);
+void triParOrdreAlphabetiqueInv(Etudiant e[], int taille);
 void triParStatus(Etudiant e[], int taille);
 void afficherEtudiant(Etudiant e);
 void afficherTous(Etudiant e[], int taille);

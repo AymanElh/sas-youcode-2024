@@ -119,6 +119,8 @@ int main()
             }
             case 12:
             {
+                triParOrdreAlphabetiqueInv(etudiants, nbr_etudiants);
+                printf("\n");
                 break;
             }
             case 13:

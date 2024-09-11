@@ -366,6 +366,23 @@ void triParOrdreAlphabetique(Etudiant e[], int taille)
     }
 }
 
+void triParOrdreAlphabetiqueInv(Etudiant e[], int taille)
+{
+    int min_idx;
+    for(int i = 0; i < taille; i++)
+    {
+        min_idx = i;
+        for(int j = i; j < taille; j++)
+        {
+            if(strcmp(strlwr(e[min_idx].nom), strlwr(e[j].nom)) < 0)
+            {
+                min_idx = j;
+            }
+        }
+        swap(&e[i], &e[min_idx]);
+    }
+}
+
 void triParStatus(Etudiant e[], int taille)
 {
 
