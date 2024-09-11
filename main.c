@@ -142,5 +142,6 @@ int main()
                 printf("Invalide choix, ressayer.\n");
         }
     }
+    getchar();
     return 0;
 }
