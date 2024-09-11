@@ -111,6 +111,71 @@ void modifierEtudiant(Etudiant e[], int id, int taille)
         printf("L'etudiant n'existe pas.\n");
         return;
     }
+    printf("1. Nom.\n");
+    printf("2. Prenom.\n");
+    printf("3. Date de naissance.\n");
+    printf("4. Departement.\n");
+    printf("5. Note generale.\n");
+    printf("6. Tous.\n");
+
+    int choix;
+    printf("Entrer le nombre d'element que vous voulez modifier.\n");
+    scanf("%d", &choix);
+
+    switch(choix)
+    {
+        case 1:
+        {
+            char nom[STRING_SIZE];
+            printf("Entrer le nouveau nom: ");
+            scanf(" %[^\n]", nom);
+            strcpy(e[index].nom, nom);
+            break;
+        }
+        case 2:
+        {
+            char prenom[STRING_SIZE];
+            printf("Entrer le nouveau prenom: ");
+            scanf(" %[^\n]", prenom);
+            strcpy(e[index].prenom, prenom);
+            break;
+        }
+        case 3:
+        {
+            int annee, mois, jour;
+            printf("Entrer la nouvelle date (YYYY-MM-DD): ");
+            while(scanf("%d-%d-%d", &annee, &mois, &jour) != 3 || !check_date(annee, mois, jour))
+            {
+                printf("Invalide date, ressayer: ");
+            }
+            e[index].dateNaissance.annee = annee;
+            e[index].dateNaissance.mois = mois;
+            e[index].dateNaissance.jour = jour;
+            break;
+        }
+        case 4:
+        {
+            char departement[STRING_SIZE];
+            printf("Entrer le nouveau departement: ");
+            scanf(" %[^\n]", departement);
+            strcpy(e[index].departement, departement);
+            break;
+        }
+        case 5:
+        {
+            float note;
+            printf("Entrer la nouvelle note: ");
+            scanf("%f", &note);
+            e[index].note_generale = note;
+            break;
+        }
+        case 7:
+        {
+            e[index] = saisieEtudiant();
+            break;
+        }
+    }
+
     printf("Entrer les nouveaux informations d'etudiant: \n");
     e[index] = saisieEtudiant();
     printf("L'etudiant a ete modifier.\n");
