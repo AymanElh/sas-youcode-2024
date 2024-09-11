@@ -165,3 +165,22 @@ float moyenneGeneraleParDep(Etudiant e[], char dep[], int taille)
     }
     return sum / counter;
 }
+
+void afficherEtudiant(Etudiant e)
+{
+    printf("\n    ---------------     \n");
+    printf("Id: %d\n", e.id);
+    printf("Nom: %s\n", e.nom);
+    printf("Prenom: %s\n", e.prenom);
+    printf("Date de naissance: %d/%d/%d\n", e.dateNaissance.annee, e.dateNaissance.mois, e.dateNaissance.jour);
+    printf("Departement: %s\n", e.departement);
+    printf("Note generale: %.2f\n", e.note_generale);
+    printf("\n    ---------------     \n");
+}
+
+void afficherTous(Etudiant e[], int taille)
+{
+    printf("La liste des etudiant est: \n");
+    for(int i = 0; i < taille; i++)
+        afficherEtudiant(e[i]);
+}
