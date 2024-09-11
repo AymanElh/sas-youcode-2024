@@ -191,6 +191,17 @@ void afficherNbrEtudiantsParDep(Etudiant e[], int taille)
         printf("Nombre total des etudiants dans departement %s est: %d\n", departements[i], nbrEtudiantsParDep(e, departements[i], taille));
 }
 
+void etudiantsSupSeuil(Etudiant e[], float seuil, int taille)
+{
+    printf("Les etudiants qu'ayant un note supperieur a %.2f sont: \n");
+    for(int i = 0; i < taille; i++)
+    {
+        if(e[i].note_generale >= seuil)
+            printf("%s %s\n", e[i].nom, e[i].prenom);
+    }
+}
+
+
 void afficherEtudiant(Etudiant e)
 {
     printf("\n    ---------------     \n");
