@@ -22,3 +22,33 @@ void Menu()
     printf("13. Tri les etudiants par leur status.\n");
     printf("14. Afficher tous.\n");
 }
+
+int check_date(int annee, int mois, int jour)
+{
+    if(annee < 1)
+        return 0;
+
+    if(mois < 1 || mois > 12)
+        return 0;
+
+    int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if((annee % 4 == 0 && annee % 100 != 0) || annee % 400 == 0)
+        days[1] = 29;
+
+    if(jour < 1 || jour > days[mois-1])
+        return 0;
+
+    return 1;
+}
+
+int check_departement(char dep[])
+{
+    int size = sizeof(departements) / sizeof(departements[0]);
+    for(int i = 0; i < size; i++)
+    {
+        if(strcmp(strlwr(dep), strlwr(departements[i])) == 0)
+            return 1;
+    }
+    return 0;
+}

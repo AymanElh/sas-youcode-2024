@@ -27,5 +27,7 @@ typedef struct
 }Etudiant;
 
 void Menu();
+int check_date(int annee, int mois, int jour);
+int check_departement(char dep[]);
 
 #endif
