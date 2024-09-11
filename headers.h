@@ -2,6 +2,7 @@
 #define HEADERS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX_STUDENTS 1000
@@ -41,6 +42,7 @@ void afficherMoyenneGeneraleParDep(Etudiant e[], int taille);
 int nbrEtudiantsParDep(Etudiant e[], char dep[], int taille);
 void afficherNbrEtudiantsParDep(Etudiant e[], int taille);
 void etudiantsSupSeuil(Etudiant e[], float seuil, int taille);
+void topTrois(Etudiant e[], int taille);
 int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille);
 void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille);
 void afficherEtudiant(Etudiant e);

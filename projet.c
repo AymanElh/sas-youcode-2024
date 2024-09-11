@@ -181,7 +181,7 @@ int nbrEtudiantsParDep(Etudiant e[], char dep[], int taille)
     int nbr_students = 0;
     for(int i = 0; i < taille; i++)
     {
-        if(strcmp(strlwr(e[i]), strlwr(dep)) == 0)
+        if(strcmp(strlwr(e[i].departement), strlwr(dep)) == 0)
             nbr_students++;
     }
     return nbr_students;
@@ -202,12 +202,40 @@ void etudiantsSupSeuil(Etudiant e[], float seuil, int taille)
     }
 }
 
+void topTrois(Etudiant e[], int taille)
+{
+    int max_idx1, max_idx2, max_idx3;
+    max_idx1 = max_idx2 = max_idx3 = 0;
+    for(int i = 1; i < taille; i++)
+    {
+        if(e[max_idx1].note_generale < e[i].note_generale)
+        {
+            max_idx3 = max_idx2;
+            max_idx2 = max_idx1;
+            max_idx1 = i;
+        }
+        else if(e[max_idx1].note_generale > e[max_idx2].note_generale && e[max_idx2].note_generale < e[i].note_generale)
+        {
+            max_idx3 = max_idx2;
+            max_idx2 = i;
+        }
+        else
+            max_idx3 = i;
+    }
+
+    printf("Top 3 etudiants sont: ");
+    printf("%s: %.2f\n", e[max_idx1].nom, e[max_idx1].note_generale);
+    printf("%s: %.2f\n", e[max_idx2].nom, e[max_idx2].note_generale);
+    printf("%s: %.2f\n", e[max_idx3].nom, e[max_idx3].note_generale);
+    
+}
+
 int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille)
 {
     int nbr;
     for(int i = 0; i < taille; i++)
     {
-        if(stcmp(strlwr(e[i].departement), strlwr(dep)) == 0 && e[i].note_generale >= 10)
+        if(strcmp(strlwr(e[i].departement), strlwr(dep)) == 0 && e[i].note_generale >= 10)
             nbr++;
     }
     return nbr;
