@@ -26,6 +26,6 @@ typedef struct
     float note_generale;
 }Etudiant;
 
-
+void Menu();
 
 #endif
