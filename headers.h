@@ -46,6 +46,8 @@ void topTrois(Etudiant e[], int taille);
 int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille);
 void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille);
 void afficherEtudiantsInscritsParDep(Etudiant e[], int taille);
+void swap(Etudiant *a, Etudiant *b);
+void triParMoyenneGenerale(Etudiant e[], int taille);
 void afficherEtudiant(Etudiant e);
 void afficherTous(Etudiant e[], int taille);
 

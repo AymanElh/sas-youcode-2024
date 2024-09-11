@@ -267,6 +267,28 @@ void afficherEtudiantsInscritsParDep(Etudiant e[], int taille)
     }
 }
 
+void swap(Etudiant *a, Etudiant *b)
+{
+    Etudiant temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void triParMoyenneGenerale(Etudiant e[], int taille)
+{
+    int min_idx;
+    for(int i = 0; i < taille; i++)
+    {
+        min_idx = i;
+        for(int j = i; j < taille; j++)
+        {
+            if(e[i].note_generale < e[j].note_generale)
+                min_idx = j;
+        }
+        swap(&e[min_idx], &e[i]);
+    }
+}
+
 void afficherEtudiant(Etudiant e)
 {
     printf("\n    ---------------     \n");
