@@ -175,9 +175,6 @@ void modifierEtudiant(Etudiant e[], int id, int taille)
             break;
         }
     }
-
-    printf("Entrer les nouveaux informations d'etudiant: \n");
-    e[index] = saisieEtudiant();
     printf("L'etudiant a ete modifier.\n");
 }
 
