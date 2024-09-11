@@ -29,5 +29,8 @@ typedef struct
 void Menu();
 int check_date(int annee, int mois, int jour);
 int check_departement(char dep[]);
+Etudiant saisieEtudiant();
+void ajouterEtudiants(Etudiant e[], int nbr, int *taille);
+int rechercheEtudiantParId(Etudiant e[], int id, int taille);
 
 #endif

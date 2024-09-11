@@ -52,3 +52,50 @@ int check_departement(char dep[])
     }
     return 0;
 }
+
+Etudiant saisieEtudiant()
+{
+    Etudiant e1;
+    id_counter++;
+    e1.id = id_counter;
+    printf("Nom: ");
+    scanf(" %[^\n]", e1.nom);
+    printf("Prenom: ");
+    scanf(" %[^\n]", e1.prenom);
+    printf("Date de naissance (YYYY-MM-DD): ");
+    while(scanf("%d-%d-%d", &e1.dateNaissance.annee, &e1.dateNaissance.mois, &e1.dateNaissance.jour) != 3 || !check_date(e1.dateNaissance.annee, e1.dateNaissance.mois, e1.dateNaissance.jour))
+    {
+        printf("Invalide date, Ressayer: ");
+    }
+    printf("Choisi un Departement: \n");
+    for(int i = 0; i < 6; i++)  
+        printf("   %s\n", departements[i]);
+    printf("Departement: ");
+    while(scanf(" %[^\n]", e1.departement) != 1 || !check_departement(e1.departement))
+    {
+        printf("Invalide departement, Ressayer: ");
+    }
+    printf("Note generale: ");
+    scanf("%f", &e1.note_generale);
+    return e1;
+}
+
+void ajouterEtudiants(Etudiant e[], int nbr, int *taille)
+{
+    for(int i = 0; i < nbr; i++)
+    {
+        printf("Entrer les informations d'etudiant %d\n", i+1);
+        e[*taille] = saisieEtudiant();
+        (*taille) ++;
+    }
+}
+
+int rechercheEtudiantParId(Etudiant e[], int id, int taille)
+{
+    for(int i = 0; i < taille; i++)
+    {
+        if(e[i].id == id)
+            return i;
+    }
+    return -1;
+}
