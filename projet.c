@@ -140,3 +140,28 @@ int rechercheEtudiantParNom(Etudiant e[], char nom[], int taille)
     }
     return -1;
 }
+
+float moyenneGenerale(Etudiant e[], int taille)
+{
+    int sum = 0;
+    for(int i = 0; i < taille; i++)
+    {
+        sum += e[i].note_generale;
+    }
+    return sum / taille;
+}
+
+float moyenneGeneraleParDep(Etudiant e[], char dep[], int taille)
+{
+    float sum = 0;
+    int counter = 0;
+    for(int i = 0; i < taille; i++)
+    {
+        if(strcmp(strlwr(e[i].departement), strlwr(dep)) == 0)
+        {
+            sum += e[i].note_generale;
+            counter++;
+        }
+    }
+    return sum / counter;
+}
