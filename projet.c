@@ -175,6 +175,22 @@ void afficherMoyenneGeneraleParDep(Etudiant e[],int taille)
     }
 }
 
+int nbrEtudiantsParDep(Etudiant e[], char dep[], int taille)
+{
+    int nbr_students = 0;
+    for(int i = 0; i < taille; i++)
+    {
+        if(strcmp(strlwr(e[i]), strlwr(dep)) == 0)
+            nbr_students++;
+    }
+    return nbr_students;
+}
+void afficherNbrEtudiantsParDep(Etudiant e[], int taille)
+{
+    for(int i = 0; i < size; i++)
+        printf("Nombre total des etudiants dans departement %s est: %d\n", departements[i], nbrEtudiantsParDep(e, departements[i], taille));
+}
+
 void afficherEtudiant(Etudiant e)
 {
     printf("\n    ---------------     \n");
