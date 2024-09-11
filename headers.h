@@ -37,6 +37,7 @@ void supprimerEtudiant(Etudiant e[], int id, int *taille);
 int rechercheEtudiantParNom(Etudiant e[], char nom[], int taille);
 float moyenneGenerale(Etudiant e[], int taille);
 float moyenneGeneraleParDep(Etudiant e[], char dep[], int taille);
+void afficherMoyenneGeneraleParDep(Etudiant e[], int taille);
 void afficherEtudiant(Etudiant e);
 void afficherTous(Etudiant e[], int taille);
 

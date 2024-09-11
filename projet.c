@@ -1,6 +1,7 @@
 #include "headers.h"
 
 char departements[][STRING_SIZE] = {"Maths", "Physique", "Chimie", "Biologie", "Geologie", "Informatique"};
+const int size = sizeof(departements) / sizeof(departements[0]);
 
 int id_counter = 0;
 
@@ -164,6 +165,14 @@ float moyenneGeneraleParDep(Etudiant e[], char dep[], int taille)
         }
     }
     return sum / counter;
+}
+
+void afficherMoyenneGeneraleParDep(Etudiant e[],int taille)
+{
+    for(int i = 0; i < size; i++)
+    {
+        printf("Le moyenne generale du departement de %s est: %.2f.\n", departements[i], moyenneGeneraleParDep(e, departements[i], taille));
+    }
 }
 
 void afficherEtudiant(Etudiant e)
