@@ -250,6 +250,23 @@ void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille)
     }
 }
 
+void afficherEtudiantsInscritsParDep(Etudiant e[], int taille)
+{
+    int j = 0;
+    while(j < size)
+    {
+        printf("Les etudians inscrits dans %s:\n", departements[j]);
+        for(int i = 0; i < taille; i++)
+        {
+            if(strcmp(e[i].departement, departements[j]) == 0)
+            {
+                printf("%s %s\n", e[i].nom, e[i].prenom);
+            }
+        }
+        j++;
+    }
+}
+
 void afficherEtudiant(Etudiant e)
 {
     printf("\n    ---------------     \n");
