@@ -41,6 +41,8 @@ void afficherMoyenneGeneraleParDep(Etudiant e[], int taille);
 int nbrEtudiantsParDep(Etudiant e[], char dep[], int taille);
 void afficherNbrEtudiantsParDep(Etudiant e[], int taille);
 void etudiantsSupSeuil(Etudiant e[], float seuil, int taille);
+int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille);
+void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille);
 void afficherEtudiant(Etudiant e);
 void afficherTous(Etudiant e[], int taille);
 

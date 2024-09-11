@@ -7,7 +7,7 @@ int id_counter = 0;
 
 void Menu()
 {
-    printf("\n ********** MENU ********** \n");
+    printf("\n ---------- MENU ---------- \n");
     printf("1. Ajouter des etudiants.\n");
     printf("2. Modifier etudiant.\n");
     printf("3. Supprimer etudiant.\n");
@@ -22,6 +22,7 @@ void Menu()
     printf("12. Tri les etudiants par ordre alphabetiques (Z-A).\n");
     printf("13. Tri les etudiants par leur status.\n");
     printf("14. Afficher tous.\n");
+    printf("   -------------------         \n");
 }
 
 int check_date(int annee, int mois, int jour)
@@ -201,6 +202,25 @@ void etudiantsSupSeuil(Etudiant e[], float seuil, int taille)
     }
 }
 
+int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille)
+{
+    int nbr;
+    for(int i = 0; i < taille; i++)
+    {
+        if(stcmp(strlwr(e[i].departement), strlwr(dep)) == 0 && e[i].note_generale >= 10)
+            nbr++;
+    }
+    return nbr;
+}
+
+void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille)
+{
+    printf("\nLe nombre des etudiant par departement: \n");
+    for(int i = 0; i < size; i++)
+    {
+        printf("%s: %d\n", departements[i], nbrEtudiantReuissiParDep(e, departements[i], taille));
+    }
+}
 
 void afficherEtudiant(Etudiant e)
 {
