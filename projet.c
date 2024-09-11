@@ -364,6 +364,7 @@ void triParOrdreAlphabetique(Etudiant e[], int taille)
         }
         swap(&e[i], &e[min_idx]);
     }
+    printf("Le tableau a ete trie.\n");
 }
 
 void triParOrdreAlphabetiqueInv(Etudiant e[], int taille)
@@ -381,6 +382,7 @@ void triParOrdreAlphabetiqueInv(Etudiant e[], int taille)
         }
         swap(&e[i], &e[min_idx]);
     }
+    printf("Le tableau a ete trie.\n");
 }
 
 void triParStatus(Etudiant e[], int taille)
