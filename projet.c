@@ -386,9 +386,7 @@ void triParOrdreAlphabetiqueInv(Etudiant e[], int taille)
 }
 
 void triParStatus(Etudiant e[], int taille)
-{
-
-}
+{}
 
 void afficherEtudiant(Etudiant e)
 {
