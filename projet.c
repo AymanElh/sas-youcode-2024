@@ -67,6 +67,7 @@ Etudiant saisieEtudiant()
     printf("Date de naissance (YYYY-MM-DD): ");
     while(scanf("%d-%d-%d", &e1.dateNaissance.annee, &e1.dateNaissance.mois, &e1.dateNaissance.jour) != 3 || !check_date(e1.dateNaissance.annee, e1.dateNaissance.mois, e1.dateNaissance.jour))
     {
+        while(getchar() != '\n');
         printf("Invalide date, Ressayer: ");
     }
     printf("Choisi un Departement: \n");
@@ -75,11 +76,13 @@ Etudiant saisieEtudiant()
     printf("Departement: ");
     while(scanf(" %[^\n]", e1.departement) != 1 || !check_departement(e1.departement))
     {
+        while(getchar() != '\n');
         printf("Invalide departement, Ressayer: ");
     }
     printf("Note generale: ");
     while(scanf("%f", &e1.note_generale)!= 1 || e1.note_generale < 0 || e1.note_generale > 20) 
     {
+        while(getchar() != '\n');
         printf("Invalide note, Ressayer: ");
     } 
     return e1;
@@ -241,9 +244,14 @@ float moyenneGeneraleParDep(Etudiant e[], char dep[], int taille)
 
 void afficherMoyenneGeneraleParDep(Etudiant e[], int taille)
 {
+    float moyenne;
     for(int i = 0; i < size; i++)
     {
-        printf("Le moyenne generale du departement de %s est: %.2f.\n", departements[i], moyenneGeneraleParDep(e, departements[i], taille));
+        moyenne = moyenneGeneraleParDep(e, departements[i], taille);
+        if(moyenne >= 0)
+        {
+            printf("Le moyenne generale du departement de %s est: %.2f.\n", departements[i], moyenne);
+        }
     }
 }
 
@@ -259,8 +267,12 @@ int nbrEtudiantsParDep(Etudiant e[], char dep[], int taille)
 }
 void afficherNbrEtudiantsParDep(Etudiant e[], int taille)
 {
+    int nbr_students = 0;
     for(int i = 0; i < size; i++)
+    {
+        nbr_students =  nbrEtudiantsParDep(e, departements[i], taille);
         printf("%s: %d\n", departements[i], nbrEtudiantsParDep(e, departements[i], taille));
+    }
 }
 
 void etudiantsSupSeuil(Etudiant e[], float seuil, int taille)
@@ -313,9 +325,11 @@ int nbrEtudiantReuissiParDep(Etudiant e[], char dep[], int taille)
 
 void afficherNbrEtudiantsReuissiParDep(Etudiant e[], int taille)
 {
+    int nbr_students = 0;
     for(int i = 0; i < size; i++)
     {
-        printf("%s: %d\n", departements[i], nbrEtudiantReuissiParDep(e, departements[i], taille));
+        nbr_students = nbrEtudiantReuissiParDep(e, departements[i], taille);
+        printf("%s: %d\n", departements[i], nbr_students);
     }
 }
 
@@ -327,7 +341,7 @@ void afficherEtudiantsInscritsParDep(Etudiant e[], int taille)
         printf("Les etudians inscrits dans %s:\n", departements[j]);
         for(int i = 0; i < taille; i++)
         {
-            if(strcmp(e[i].departement, departements[j]) == 0)
+            if(strcmp(strlwr(e[i].departement), strlwr(departements[j])) == 0)
             {
                 printf("%s %s\n", e[i].nom, e[i].prenom);
             }
