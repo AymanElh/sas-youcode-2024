@@ -78,7 +78,10 @@ Etudiant saisieEtudiant()
         printf("Invalide departement, Ressayer: ");
     }
     printf("Note generale: ");
-    scanf("%f", &e1.note_generale);
+    while(scanf("%f", &e1.note_generale)!= 1 || e1.note_generale < 0 || e1.note_generale > 20) 
+    {
+        printf("Invalide note, Ressayer: ");
+    } 
     return e1;
 }
 
@@ -156,7 +159,10 @@ void modifierEtudiant(Etudiant e[], int id, int taille)
         {
             char departement[STRING_SIZE];
             printf("Entrer le nouveau departement: ");
-            scanf(" %[^\n]", departement);
+            while(scanf(" %[^\n]", departement) != 1 || !check_departement(departement))
+   			{
+       			printf("Invalide departement, Ressayer: ");
+   			}
             strcpy(e[index].departement, departement);
             break;
         }
@@ -164,7 +170,10 @@ void modifierEtudiant(Etudiant e[], int id, int taille)
         {
             float note;
             printf("Entrer la nouvelle note: ");
-            scanf("%f", &note);
+           	while(scanf("%f", &note)!= 1 || note < 0 || note > 20) 
+   			{
+       			printf("Invalide note, Ressayer: ");
+   			}
             e[index].note_generale = note;
             break;
         }
