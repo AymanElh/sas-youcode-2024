@@ -78,7 +78,10 @@ Etudiant saisieEtudiant()
         printf("Invalide departement, Ressayer: ");
     }
     printf("Note generale: ");
-    scanf("%f", &e1.note_generale);
+    while(scanf("%f", &e1.note_generale)!= 1 || note < 0 || note > 20) 
+    {
+        printf("Invalide note, Ressayer: ");
+    } 
     return e1;
 }
 
